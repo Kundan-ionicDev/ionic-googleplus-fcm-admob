@@ -37,6 +37,7 @@
     "cordova-promise-polyfill": "0.0.2",
     "core-js": "^2.5.4",
     "eslint": "^6.1.0",
+    "remove-node-modules": "^1.7.4",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
