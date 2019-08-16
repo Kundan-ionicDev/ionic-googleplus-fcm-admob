@@ -87,12 +87,12 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-googleplus": {
         "PLAY_SERVICES_VERSION": "11.8.0",
-        "REVERSED_CLIENT_ID": "238347456868-21574l9uhkud6dva5jmmhi8jmllcmb5s.apps.googleusercontent.com"
+        "REVERSED_CLIENT_ID": ""
       },
       "cordova-plugin-nativestorage": {},
       "cordova-plugin-fcm-with-dependecy-updated": {},
       "cordova-plugin-admob-free": {
-        "ADMOB_APP_ID": "ca-app-pub-2110318349553389~5610320728"
+        "ADMOB_APP_ID": ""
       },
       "cordova-admob-sdk": {}
     },
