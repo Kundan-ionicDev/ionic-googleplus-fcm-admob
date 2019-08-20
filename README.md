@@ -1,5 +1,4 @@
-Ionic Starter for Google Plus Authentication, FCM notification and Admob Integration 
-
+##Ionic Starter for Google Plus Authentication, FCM notification and Admob Integration
 
 This repo is an Ionic v4 app to help you understand, how to add Google Plus Log In , FCM Notification and Admob pro to your Ionic App.
 
@@ -7,73 +6,73 @@ For this Ionic example app we are going to build a simple ionic 4 app that allow
 
 Ionic Starter for Google Plus Authentication, FCM notification and Admob Integration.
 
-1) Download as zip or clone the project using:
-    https://github.com/Kundan-ionicDev/ionic-googleplus-fcm-admob.git
+#### Download as zip or clone the project using:<br />
+https://github.com/Kundan-ionicDev/ionic-googleplus-fcm-admob.git
 
-2) cd to your project and run npm install
-3) Run the following commands to install the AdMob Free, Google plus and FCM plugin:
-    --> For AdMob
-    `cordova plugin add cordova-plugin-admob-free --save 
-    `cordova plugin add cordova-admob-sdk 
-    `npm install @ionic-native/admob-free --save
+#### cd to your project and run 
+ >npm install
 
+For AdMobRun the following commands to install the AdMob Free, Google plus and FCM plugin:
+##### For AdMob add below mentioned plugin
+>cordova plugin add cordova-plugin-admob-free --save cordova plugin add cordova-admob-sdk
 
-   --> For Google Plus
-   `ionic cordova plugin add cordova-plugin-googleplus --save --variable REVERSED_CLIENT_ID=myreversedclientid --variable 
-        `WEB_APPLICATION_CLIENT_ID=mywebapplicationclientid`
-   `npm install @ionic-native/google-plus```
-  
-  --> For FCM
-  `ionic cordova plugin add cordova-plugin-fcm-with-dependecy-updated
-  `npm install @ionic-native/fcm`
+>npm install @ionic-native/admob-free --save
 
- Imports :
-```import { FCM } from '@ionic-native/fcm/ngx';```
+##### For Google Plus  add below mentioned plugin
+>ionic cordova plugin add cordova-plugin-googleplus --save --variable REVERSED_CLIENT_ID=myreversedclientid --variable WEB_APPLICATION_CLIENT_ID=mywebapplicationclientid 
 
-4) Add the platform for the app to run on your device: 
-   `ionic cordova platform add android`
-   `ionic cordova platform add ios`
-5) connect your device and run the command:
-   `ionic cordova run android`
-   `ionic cordova run ios`
-6) Add below mentioned code for Admob 
-```showAdBanner() {
-    let bannerConfig: AdMobFreeBannerConfig = {
+>npm install @ionic-native/google-plus
+
+##### For FCM add below mentioned plugin
+>ionic cordova plugin add cordova-plugin-fcm-with-dependecy-updated 
+
+>npm install @ionic-native/fcm
+
+<br/>
+>Imports : import { FCM } from '@ionic-native/fcm/ngx';
+
+##### Add the platform for the app to run on your device: 
+>ionic cordova platform add android 
+>ionic cordova platform add ios
+
+##### connect your device and run the command: 
+>ionic cordova run android 
+>ionic cordova run ios
+
+##### Add below mentioned code for Admob
+>    let bannerConfig: AdMobFreeBannerConfig = {
         isTesting: true,
         autoShow: true
     };
 
-    this.admob.banner.config(bannerConfig);
+ >   this.admob.banner.config(bannerConfig);
     this.admob.banner.prepare().then(() => {
-       
+       console.log('sucess');
     }).catch(e => console.log(e));
-
 }
 
-showInterstitial() {
+>showInterstitial() {
     let interstitialConfig: AdMobFreeInterstitialConfig = {
         isTesting: true, 
         autoShow: true
     };
 
-    this.admob.interstitial.config(interstitialConfig);
+ >   this.admob.interstitial.config(interstitialConfig);
 
-    this.admob.interstitial.prepare().then(() => {
-        
-    });
+>    this.admob.interstitial.prepare().then(() => {
+   console.log('sucess');
+    });'
+>}
 
-}
+<br/>
 
+#### Import below mentioned into page and app.module.ts 
+>import { AdMobFree, AdMobFreeBannerConfig, AdMobFreeInterstitialConfig } from '@ionic-native/admob-free/ngx';
 
-Import below mentioned into page and app.module.ts 
-import { AdMobFree, AdMobFreeBannerConfig, AdMobFreeInterstitialConfig } from '@ionic-native/admob-free/ngx';
-````
+###### There is also a detailed tutorial to help you with the [Google Account setup](https://console.developers.google.com/apis/dashboard?project=realhero-1345&angularJsUrl= "Google Account setup") and with the step by step of building this Ionic Framework app.
 
-7) There is also a detailed tutorial to help you with the Google Account setup and with the step by step of building this Ionic Framework app.
+#### Add below mentioned code for Login button click :
 
---> Add below mentioned code for Login button click :
-
-```async doGoogleLogin() {
     const loading = await this.loadingController.create({
       message: 'Please wait...',
       duration: 2000
@@ -101,10 +100,8 @@ import { AdMobFree, AdMobFreeBannerConfig, AdMobFreeInterstitialConfig } from '@
       });
   }
 
-````
---> Add below mentioned code for Logout of Google
+#### Add below mentioned code for Logout of Google
 
-```doGoogleLogout(){
     this.googlePlus.logout()
     .then(res => {
       //user logged out so we will remove him from the NativeStorage
@@ -114,24 +111,28 @@ import { AdMobFree, AdMobFreeBannerConfig, AdMobFreeInterstitialConfig } from '@
       console.log(err);
     });
   }
- ````
- 
+#### Add into construction 
+>private googlePlus: GooglePlus 
+>and 
+>import below mentioned into page and app module.
 
-Add into construction private googlePlus: GooglePlus and import below mentioned into page and app module.
+>import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
-`import { GooglePlus } from '@ionic-native/google-plus/ngx';`
+#### For FCM import below mentioned in page and app.module
+>import { FCM } from '@ionic-native/fcm/ngx';
 
-8) For FCM import below mentioned in page and app.module 
+#### Add below mentioned code to get fcm token into app.component.ts inside
 
-`import { FCM } from '@ionic-native/fcm/ngx';`
+>initializeApp() 
+{ 
+this.platform.ready().then(() => 
+{ 
+this.fcm.getToken().then(token => 
+{ 
+console.log('FCM Token ID ::' + token);
+// alert('FCM Token ::'+token); 
+}); 
+};
+                    
 
---> Add below mentioned code to get fcm token into app.component.ts inside 
-
-` initializeApp() {
-    this.platform.ready().then(() => {
-      this.fcm.getToken().then(token => {
-        console.log('FCM Token ID ::' + token);
-        // alert('FCM Token ::'+token);
-      });
-};`
-
+###End
