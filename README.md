@@ -13,31 +13,31 @@ Ionic Starter for Google Plus Authentication, FCM notification and Admob Integra
 2) cd to your project and run npm install
 3) Run the following commands to install the AdMob Free, Google plus and FCM plugin:
     --> For AdMob
-    cordova plugin add cordova-plugin-admob-free --save 
-    cordova plugin add cordova-admob-sdk 
-    npm install @ionic-native/admob-free --save
+    `cordova plugin add cordova-plugin-admob-free --save 
+    `cordova plugin add cordova-admob-sdk 
+    `npm install @ionic-native/admob-free --save
 
 
    --> For Google Plus
-   ionic cordova plugin add cordova-plugin-googleplus --save --variable REVERSED_CLIENT_ID=myreversedclientid --variable 
-      WEB_APPLICATION_CLIENT_ID=mywebapplicationclientid
-   npm install @ionic-native/google-plus
+   `ionic cordova plugin add cordova-plugin-googleplus --save --variable REVERSED_CLIENT_ID=myreversedclientid --variable 
+        `WEB_APPLICATION_CLIENT_ID=mywebapplicationclientid`
+   `npm install @ionic-native/google-plus```
   
   --> For FCM
-  ionic cordova plugin add cordova-plugin-fcm-with-dependecy-updated
-  npm install @ionic-native/fcm
+  `ionic cordova plugin add cordova-plugin-fcm-with-dependecy-updated
+  `npm install @ionic-native/fcm
 
  Imports :
-import { FCM } from '@ionic-native/fcm/ngx';
+`import { FCM } from '@ionic-native/fcm/ngx';
 
 4) Add the platform for the app to run on your device: 
-    ionic cordova platform add android
-   ionic cordova platform add ios
+   `ionic cordova platform add android
+   `ionic cordova platform add ios
 5) connect your device and run the command:
-    ionic cordova run android
-   ionic cordova run ios
+   `ionic cordova run android
+   `ionic cordova run ios
 6) Add below mentioned code for Admob
-showAdBanner() {
+`showAdBanner() {
     let bannerConfig: AdMobFreeBannerConfig = {
         isTesting: true, // Remove in production
         autoShow: true,
@@ -68,12 +68,12 @@ showAdBanner() {
 Import below mentioned into page and app.module.ts 
 import { AdMobFree, AdMobFreeBannerConfig, AdMobFreeInterstitialConfig } from '@ionic-native/admob-free/ngx';
 
-
+`
 7) There is also a detailed tutorial to help you with the Google Account setup and with the step by step of building this Ionic Framework app.
 
 --> Add below mentioned code for Login button click :
 
-async doGoogleLogin() {
+```async doGoogleLogin() {
     const loading = await this.loadingController.create({
       message: 'Please wait...',
       duration: 2000
@@ -101,10 +101,10 @@ async doGoogleLogin() {
       });
   }
 
-
+````
 --> Add below mentioned code for Logout of Google
 
-doGoogleLogout(){
+```doGoogleLogout(){
     this.googlePlus.logout()
     .then(res => {
       //user logged out so we will remove him from the NativeStorage
@@ -114,22 +114,24 @@ doGoogleLogout(){
       console.log(err);
     });
   }
+ ````
+ 
 
 Add into construction private googlePlus: GooglePlus and import below mentioned into page and app module.
 
-import { GooglePlus } from '@ionic-native/google-plus/ngx';
+`import { GooglePlus } from '@ionic-native/google-plus/ngx';`
 
 8) For FCM import below mentioned in page and app.module 
 
-import { FCM } from '@ionic-native/fcm/ngx';
+`import { FCM } from '@ionic-native/fcm/ngx';`
 
 --> Add below mentioned code to get fcm token into app.component.ts inside 
 
- initializeApp() {
+` initializeApp() {
     this.platform.ready().then(() => {
       this.fcm.getToken().then(token => {
         console.log('FCM Token ID ::' + token);
         // alert('FCM Token ::'+token);
       });
-};
+};`
 
