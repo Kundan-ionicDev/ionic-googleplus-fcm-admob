@@ -70,7 +70,9 @@ import { AdMobFree, AdMobFreeBannerConfig, AdMobFreeInterstitialConfig } from '@
 
 
 7) There is also a detailed tutorial to help you with the Google Account setup and with the step by step of building this Ionic Framework app.
+
 --> Add below mentioned code for Login button click :
+
 async doGoogleLogin() {
     const loading = await this.loadingController.create({
       message: 'Please wait...',
@@ -99,7 +101,9 @@ async doGoogleLogin() {
       });
   }
 
+
 --> Add below mentioned code for Logout of Google
+
 doGoogleLogout(){
     this.googlePlus.logout()
     .then(res => {
@@ -111,13 +115,16 @@ doGoogleLogout(){
     });
   }
 
-Add into construction private googlePlus: GooglePlus and import below mentioned into page and app module
+Add into construction private googlePlus: GooglePlus and import below mentioned into page and app module.
+
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 8) For FCM import below mentioned in page and app.module 
+
 import { FCM } from '@ionic-native/fcm/ngx';
 
 --> Add below mentioned code to get fcm token into app.component.ts inside 
+
  initializeApp() {
     this.platform.ready().then(() => {
       this.fcm.getToken().then(token => {
