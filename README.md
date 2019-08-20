@@ -25,50 +25,50 @@ Ionic Starter for Google Plus Authentication, FCM notification and Admob Integra
   
   --> For FCM
   `ionic cordova plugin add cordova-plugin-fcm-with-dependecy-updated
-  `npm install @ionic-native/fcm
+  `npm install @ionic-native/fcm`
 
  Imports :
-`import { FCM } from '@ionic-native/fcm/ngx';
+```import { FCM } from '@ionic-native/fcm/ngx';```
 
 4) Add the platform for the app to run on your device: 
-   `ionic cordova platform add android
-   `ionic cordova platform add ios
+   `ionic cordova platform add android`
+   `ionic cordova platform add ios`
 5) connect your device and run the command:
-   `ionic cordova run android
-   `ionic cordova run ios
-6) Add below mentioned code for Admob
-`showAdBanner() {
+   `ionic cordova run android`
+   `ionic cordova run ios`
+6) Add below mentioned code for Admob 
+```showAdBanner() {
     let bannerConfig: AdMobFreeBannerConfig = {
-        isTesting: true, // Remove in production
-        autoShow: true,
-        // id: 'kd-app-pub-211234353389/7857878153'
+        isTesting: true,
+        autoShow: true
     };
 
     this.admob.banner.config(bannerConfig);
     this.admob.banner.prepare().then(() => {
-        // success
+       
     }).catch(e => console.log(e));
 
 }
 
-   showInterstitial() {
+showInterstitial() {
     let interstitialConfig: AdMobFreeInterstitialConfig = {
-        isTesting: true, // Remove in production
-        autoShow: true,
-        // id: 'ca-app-pub-234242/7857878153'
+        isTesting: true, 
+        autoShow: true
     };
 
     this.admob.interstitial.config(interstitialConfig);
 
     this.admob.interstitial.prepare().then(() => {
-        // success
+        
     });
 
 }
+
+
 Import below mentioned into page and app.module.ts 
 import { AdMobFree, AdMobFreeBannerConfig, AdMobFreeInterstitialConfig } from '@ionic-native/admob-free/ngx';
+````
 
-`
 7) There is also a detailed tutorial to help you with the Google Account setup and with the step by step of building this Ionic Framework app.
 
 --> Add below mentioned code for Login button click :
